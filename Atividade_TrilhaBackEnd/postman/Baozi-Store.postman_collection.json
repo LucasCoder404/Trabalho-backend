@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "Baozi Store",
+    "description": "Execute de cima para baixo. O pedido só pode ser criado depois do cliente e do produto. A exclusão fica por último.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Criar Cliente",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Lucas5172485\",\n  \"clienteDesde\": \"2026-10-11\"\n}"
+        },
+        "url": "http://localhost:8080/clientes"
+      }
+    },
+    {
+      "name": "2. Criar Produto",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"nome\": \"Baozi de Churrasco\",\n  \"preco\": 12.90,\n  \"estoque\": true\n}"
+        },
+        "url": "http://localhost:8080/produtos"
+      }
+    },
+    {
+      "name": "3. Criar Pedido",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 8\n}"
+        },
+        "url": "http://localhost:8080/pedidos"
+      }
+    },
+    {
+      "name": "4. Listar Clientes",
+      "request": { "method": "GET", "url": "http://localhost:8080/clientes" }
+    },
+    {
+      "name": "5. Listar Produtos",
+      "request": { "method": "GET", "url": "http://localhost:8080/produtos" }
+    },
+    {
+      "name": "6. Listar Pedidos",
+      "request": { "method": "GET", "url": "http://localhost:8080/pedidos" }
+    },
+    {
+      "name": "7. Consultar Cliente por ID",
+      "request": { "method": "GET", "url": "http://localhost:8080/clientes/1" }
+    },
+    {
+      "name": "8. Consultar Produto por ID",
+      "request": { "method": "GET", "url": "http://localhost:8080/produtos/1" }
+    },
+    {
+      "name": "9. Consultar Pedido por ID",
+      "request": { "method": "GET", "url": "http://localhost:8080/pedidos/1" }
+    },
+    {
+      "name": "10. Apagar Pedido",
+      "request": { "method": "DELETE", "url": "http://localhost:8080/pedidos/1" }
+    },
+    {
+      "name": "11. Apagar Cliente",
+      "request": { "method": "DELETE", "url": "http://localhost:8080/clientes/1" }
+    },
+    {
+      "name": "12. Apagar Produto",
+      "request": { "method": "DELETE", "url": "http://localhost:8080/produtos/1" }
+    }
+  ]
+}
